@@ -1,0 +1,24 @@
+<div class="nav">
+	<div class="logo_container">
+		<h1>FotoScope</h1>
+	</div>
+	<div class="search_bar" style="width:40%; position:relative;">
+		<ion-input 
+			style="width: 100%; color: white; background-color: #226b93; border-radius: 25px; padding: 5px 30px; margin: 20px 0;"
+			[ngModel]="input" 
+			(ngModelChange)="change($event)" type="text" placeholder="Where are you shooting?" (click)="getLocation()"autofocus primary>
+		</ion-input>
+			<ion-icon name="search" style="color:white; position:absolute; left:90%; top:50%; transform: translate(-50%, -50%);">
+			</ion-icon>
+	</div>
+</div>
+
+
+
+<ion-content padding>
+	<ion-item 
+		*ngFor="#place of data"
+		(click)="select(place.place_id)">
+		{{place._content}}
+	</ion-item>
+</ion-content>

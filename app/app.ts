@@ -3,7 +3,7 @@ import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {InstagramService} from './instagram.service';
-import {SearchPage} from './pages/tabs/tabs';
+import {SearchPage} from './pages/searchPage/searchPage';
 
 
 @App({

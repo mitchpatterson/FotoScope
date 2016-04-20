@@ -9,14 +9,25 @@ import 'rxjs/add/observable/throw';
 export class InstagramService {
 	constructor(private http: Http) { }
 
-	private _url = 'https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key=955f6358796b490faa8f90b4d8361d51&format=json';
 	private _key = '';
 	private _link = {};
 
-	getLocation() {
-		let url = `${this._url}`;
-		return this.http.get(url, )
+	getLocation(query) {
+		let url = `https://api.flickr.com/services/rest/?api_key=955f6358796b490faa8f90b4d8361d51&format=json&nojsoncallback=?&query=${query}&method=flickr.places.find`;
+		return this.http.get(url)
 			.map(res => res.json());
 	}
+
+	getLocationId(id) {
+		let url = `https://api.flickr.com/services/rest/?api_key=955f6358796b490faa8f90b4d8361d51&format=json&nojsoncallback=?&place_id=${id}&method=flickr.photos.search`;
+		return this.http.get(url)
+			.map(res => res.json());
+	}
+
+	// returnFoto(farmId, serverId, photoId, secret) {
+	// 	let url = `https://farm${farmId}.staticflickr.com/${serverId}/${photoId}_${secret}.jpg`;
+	// 	return this.http.get(url)
+	// 		.map(res => res.json());
+	// }
 
 }
