@@ -16,9 +16,10 @@
 
 
 <ion-content padding>
-	<ion-item 
-		*ngFor="#place of data"
-		(click)="select(place.place_id)">
-		{{place._content}}
-	</ion-item>
+	<ion-card *ngFor="#place of data">
+		<ion-item style="cursor:pointer;"
+			(click)="select(place.place_id)">
+			{{place._content}}
+		</ion-item>
+	</ion-card>
 </ion-content>

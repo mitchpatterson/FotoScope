@@ -19,7 +19,7 @@ export class InstagramService {
 	}
 
 	getLocationId(id) {
-		let url = `https://api.flickr.com/services/rest/?api_key=955f6358796b490faa8f90b4d8361d51&format=json&nojsoncallback=?&place_id=${id}&method=flickr.photos.search`;
+		let url = `https://api.flickr.com/services/rest/?api_key=955f6358796b490faa8f90b4d8361d51&format=json&nojsoncallback=?&sort=interestingness-desc&content_type=1&place_id=${id}&geo_content=2&per_page=20&method=flickr.photos.search`;
 		return this.http.get(url)
 			.map(res => res.json());
 	}

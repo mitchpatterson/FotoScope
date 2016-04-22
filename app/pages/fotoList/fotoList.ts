@@ -27,14 +27,16 @@ export class FotoList {
 
 	returnFoto(photos) {
 		this.photos = photos.map(function(obj){
-			return `https://farm${obj.farm}.staticflickr.com/${obj.server}/${obj.id}_${obj.secret}.jpg`;
+			return {
+				id: `https://farm${obj.farm}.staticflickr.com/${obj.server}/${obj.id}_${obj.secret}.jpg`,
+				title: obj.title
+			}
 		});
 	}
 
 	onPageDidEnter() {
 		this.id = this._params.get('id');
 		this.getLocationId(this.id);
-
 	}
 
 }

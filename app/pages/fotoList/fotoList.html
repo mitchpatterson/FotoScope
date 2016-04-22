@@ -1,15 +1,19 @@
-<ion-navbar style="">
+<ion-navbar style="background-color:#2980b9 !important;">
 	<ion-buttons start>
 		<button>
-			<ion-icon name="contact">
-			</ion-icon>
 		</button>
 	</ion-buttons>
 	<ion-title>FotoScope</ion-title>
 </ion-navbar>
 
 <ion-content padding>
-	<ion-item *ngFor="#id of photos">
-		<img [src]="id"/>
-	</ion-item>
+
+	<ion-card *ngFor="#id of photos">
+		<ion-card-header>
+			{{id.title}}
+		</ion-card-header>
+		<ion-card-content>
+			<img [src]="id.id"/>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
